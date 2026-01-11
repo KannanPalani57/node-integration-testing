@@ -1,0 +1,11 @@
+Migration
+
+migration library used in this project
+https://github.com/golang-migrate/migrate
+
+create migration file 
+migrate create -ext sql -dir db/migrations -seq create_users_table
+
+run migration  
+migrate -database YOUR_DATABASE_URL -path PATH_TO_YOUR_MIGRATIONS up
+migrate -database YOUR_DATABASE_URL -path db/migrations up

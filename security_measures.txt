@@ -1,0 +1,24 @@
+
+* Get user id from the authorized token not from the user_id in the request payload. 
+If user_id passed from the payload, it will lead broken access control vulnerability.  
+
+* Storing Authorization JWT in cookie as a HTTP only cookie is a safe and better way and passing authorization token in cookie as a http only cookie 
+
+* Prevent NoSQL injection,  sanitize user inputs before processing it 
+
+* Add CSRF protection middleware before processing request , do not allow requests from other domains
+
+*  Only allow to withdraw when 2FA Authentication enabled
+
+* In general, make sure that installed node packages has no vulnerabilities
+
+* Rate Limiting - Limiting request can be made for per day/hour/minute
+
+* Maximum withdrawl per day
+
+* check balance , if withdrawl amount higher than balance, block request before sending to provider
+
+* Validate respective withdrawl address before sending to provider
+
+*  Nice to have - Transaction Idempotency - Require a unique `idempotency-key` in the header. This prevents a user from accidentally sending the same withdrawal twice if their connection drops and they retry.
+reference : https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Idempotency-Key
